@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FocusFit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>⚡ FocusFit</h1>
+  <p>XP: <span id="xp">0</span> | Streak: <span id="streak">0</span> days</p>
+
+  <nav>
+    <button onclick="showTab('reaction')">Reaction</button>
+    <button onclick="showTab('memory')">Memory</button>
+    <button onclick="showTab('log')">Log</button>
+    <button onclick="showTab('stats')">Stats</button>
+  </nav>
+
+  <div id="reaction" class="tab">
+    <h2>Reaction Test</h2>
+    <div id="reactPad">Tap START</div>
+    <button onclick="startReaction()">START</button>
+    <p id="reactResult">—</p>
+  </div>
+
+  <div id="memory" class="tab" style="display:none">
+    <h2>Memory Match</h2>
+    <div id="memoryGrid" class="grid"></div>
+    <p id="memoryMsg">Find all pairs!</p>
+  </div>
+
+  <div id="log" class="tab" style="display:none">
+    <h2>Workout Log</h2>
+    <form onsubmit="addLog(event)">
+      <input id="logTitle" placeholder="Workout" required>
+      <input id="logMins" type="number" placeholder="Minutes" required>
+      <button type="submit">Save</button>
+    </form>
+    <ul id="logList"></ul>
+  </div>
+
+  <div id="stats" class="tab" style="display:none">
+    <h2>Reaction Stats</h2>
+    <canvas id="chart" width="300" height="150"></canvas>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
